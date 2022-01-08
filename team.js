@@ -68,6 +68,19 @@ function playerPoint(position,player) {
     }
 }
 
+function playerImg(position,player) {
+    let point = team._positions[position];
+    for (key in point) {
+        if (point[key].includes(player)) {
+            return point[key][2];
+        }
+        
+    }
+}
+
+
+
+
 let defans = twoPlayerforPosition()[0]
 let ortasaha = twoPlayerforPosition()[1]
 let forvet = twoPlayerforPosition()[2]
@@ -79,13 +92,34 @@ console.log(defans)
 const guar = document.getElementById("guar");
 const cent = document.getElementById("cent");
 const forw = document.getElementById("forw");
+const ydguar = document.getElementById("ydguar");
+const ydcent = document.getElementById("ydcent");
+const ydforw = document.getElementById("ydforw");
+
+
+function substitutes(position,pos) {
+    const data = team._positions[position].sort((a,b)=>b[1]-a[1]);
+    let substitutes = [];
+    for (let i = 0; i < data.length; i++) {
+        
+        if (!data[i].includes(pos[0]) && !data[i].includes(pos[1]) ) {
+            substitutes.push(data[i][0])
+        }
+    }
+    return substitutes
+}
+
+console.warn("asdasd")
+console.log(substitutes("guards",defans))
+console.log(defans)
+
 
 
 guar.innerHTML = `
 <div class="flex">
 <div class="left flex-direction-column">
 
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("guards",defans[0])}"></i>
 
 <div class="info">
 <span>${defans[0]}</span>
@@ -94,7 +128,7 @@ guar.innerHTML = `
 </div>
 
 <div class="right flex-direction-column">
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("guards",defans[1])}"></i>
 <div class="info">
 <span>${defans[1]}</span>
 <span class="point">${playerPoint("guards",defans[1])}</span>
@@ -104,7 +138,7 @@ guar.innerHTML = `
 cent.innerHTML = `
 <div class="flex">
 <div class="left flex-direction-column">
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("centers",ortasaha[0])}"></i>
 <div class="info">
 <span>${ortasaha[0]}</span>
 <span class="point">${playerPoint("centers",ortasaha[0])}</span>
@@ -113,7 +147,7 @@ cent.innerHTML = `
 
 
 <div class="right flex-direction-column">
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("centers",ortasaha[1])}"></i>
 <div class="info">
 <span>${ortasaha[1]}</span>
 <span class="point">${playerPoint("centers",ortasaha[1])}</span>
@@ -126,14 +160,14 @@ cent.innerHTML = `
 forw.innerHTML = `
 <div class="flex">
 <div class="left flex-direction-column">
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("forwards",forvet[0])}"></i>
 <div class="info">
 <span>${forvet[0]}</span>
 <span class="point">${playerPoint("forwards",forvet[0])}</span>
 </div>
 </div>
 <div class="right flex-direction-column">
-<i><img src="./basketball-player.png"></i>
+<i><img src="${playerImg("forwards",forvet[1])}"></i>
 <div class="info">
 <span>${forvet[1]}</span>
 <span class="point">${playerPoint("forwards",forvet[1])}</span>
@@ -142,3 +176,89 @@ forw.innerHTML = `
 </div>
 `;
 
+
+ydguar.innerHTML = `
+<div class="flex-direction-column">
+<i><img src="${playerImg("guards",substitutes("guards",defans)[0])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("guards",defans)[0]}</span>
+<span class="point">${playerPoint("guards",substitutes("guards",defans)[0])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("guards",substitutes("guards",defans)[1])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("guards",defans)[1]}</span>
+<span class="point">${playerPoint("guards",substitutes("guards",defans)[1])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("guards",substitutes("guards",defans)[2])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("guards",defans)[2]}</span>
+<span class="point">${playerPoint("guards",substitutes("guards",defans)[2])}</span>
+</div>
+
+</div>
+`
+
+ydcent.innerHTML = `
+<div class="flex-direction-column">
+<i><img src="${playerImg("centers",substitutes("centers",ortasaha)[0])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("centers",ortasaha)[0]}</span>
+<span class="point">${playerPoint("centers",substitutes("centers",ortasaha)[0])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("centers",substitutes("centers",ortasaha)[1])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("centers",ortasaha)[1]}</span>
+<span class="point">${playerPoint("centers",substitutes("centers",ortasaha)[1])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("centers",substitutes("centers",ortasaha)[2])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("centers",ortasaha)[2]}</span>
+<span class="point">${playerPoint("centers",substitutes("centers",ortasaha)[2])}</span>
+</div>
+
+</div>
+`
+ydforw.innerHTML = `
+<div class="flex-direction-column">
+<i><img src="${playerImg("forwards",substitutes("forwards",forvet)[0])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("forwards",forvet)[0]}</span>
+<span class="point">${playerPoint("forwards",substitutes("forwards",forvet)[0])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("forwards",substitutes("forwards",forvet)[1])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("forwards",forvet)[1]}</span>
+<span class="point">${playerPoint("forwards",substitutes("forwards",forvet)[1])}</span>
+</div>
+
+</div>
+<div class="flex-direction-column">
+
+<i><img src="${playerImg("forwards",substitutes("forwards",forvet)[2])}"></i>
+<div class="info">
+<span class="name-info">${substitutes("forwards",forvet)[2]}</span>
+<span class="point">${playerPoint("forwards",substitutes("forwards",forvet)[2])}</span>
+</div>
+
+</div>
+`

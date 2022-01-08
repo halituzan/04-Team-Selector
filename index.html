@@ -7,14 +7,26 @@
   <title>Objects</title>
 </head>
 <body>
-
+<div class="big-container">
   <div class="container">
     <div class="position" id="guar"></div>
     <div class="position" id="cent"></div>
     <div class="position" id="forw"></div>
   </div>
 
+  <div class="yedek-klubesi">
+    <h2>Defans Yedekleri:</h2>
+    <div class="yedekpozisyon flex-evenly" id="ydguar"></div>
+    <h2>Ortasaha Yedekleri:</h2>
+    <div class="yedekpozisyon flex-evenly" id="ydcent"></div>
+    <h2>Forvet Yedekleri:</h2>
+    <div class="yedekpozisyon flex-evenly" id="ydforw"></div>
+  </div>
 
+</div>
+<div class="refresh">
+  <button onClick="window.location.reload();" style="background-color: transparent; border: none;cursor: pointer;"><img src="./refresh.gif" style="width: 64px;" alt="refresh"/></button>
+</div>
 
   <script type="text/javascript" src="./script.js"></script>
   <script type="text/javascript" src="./team.js"></script>

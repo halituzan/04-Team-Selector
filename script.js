@@ -23,8 +23,8 @@ const team = {
         // }
 
     },
-    getAddPlayerToPosition(positionName, playerName, playerPoint) {
-        return this._positions[positionName].push([playerName, playerPoint])
+    getAddPlayerToPosition(positionName, playerName, playerPoint,playerImg) {
+        return this._positions[positionName].push([playerName, playerPoint,playerImg])
     },
     getRandomPlayerFromPosition(positionName) {
         let players = this._positions[positionName]
@@ -47,7 +47,7 @@ const team = {
         let avgCenters = center.reduce((a, b) => a + b[1], 0);
         let avgForwards = forwards.reduce((a, b) => a + b[1], 0);
         let avgGuards = guards.reduce((a, b) => a + b[1], 0);
-
+        console.log([...centerArr,...forwArr,...guardArr])
         return `Guards:\n--------------------\nPlayer Name: ${guardArr[0][0]} \n\nPlayer Point: ${guardArr[0][1]}\nPosition Avg: ${avgGuards/guards.length}\n\nCenters:\n--------------------\nPlayer Name: ${centerArr[0][0]}\n\nPlayer Point: ${centerArr[0][1]}\nPosition Avg: ${avgCenters/center.length}\n\nForwards:\n--------------------\nPlayer Name: ${forwArr[0][0]}\n\nPlayer Point:${forwArr[0][1]}\nPosition Avg: ${avgForwards/forwards.length}`
 
     },
@@ -86,25 +86,25 @@ const team = {
 
 
 /// Guards
-team.getAddPlayerToPosition("guards", "Ball", 9.5)
-team.getAddPlayerToPosition("guards", "Carter", 13.5)
-team.getAddPlayerToPosition("guards", "Dragic", 6)
-team.getAddPlayerToPosition("guards", "Flynn", 12)
-team.getAddPlayerToPosition("guards", "Lewis Jr.", 17)
+team.getAddPlayerToPosition("guards", "Allen Iverson", 98,"../players/allen-iverson.png")
+team.getAddPlayerToPosition("guards", "Blake Griffin", 89,"../players/blake-griffin.png")
+team.getAddPlayerToPosition("guards", "Clyde Draxler", 97,"../players/clyde-draxler.png")
+team.getAddPlayerToPosition("guards", "Demarcus Cousins", 95,"../players/demarcus-cousins.png")
+team.getAddPlayerToPosition("guards", "Demar deRozan", 94,"../players/demar-derozan.png")
 
 /// Centers
-team.getAddPlayerToPosition("centers", "Babi", 15)
-team.getAddPlayerToPosition("centers", "Mell", 27)
-team.getAddPlayerToPosition("centers", "John Jr.", 13)
-team.getAddPlayerToPosition("centers", "Hamlet", 19)
-team.getAddPlayerToPosition("centers", "Elon Musk", 16)
+team.getAddPlayerToPosition("centers", "Giannis Anteto", 89,"../players/giannis-antetokounm.png")
+team.getAddPlayerToPosition("centers", "Gordon Hayvard", 83,"../players/gordon-hayvard.png")
+team.getAddPlayerToPosition("centers", "James Worthy",98, "../players/james-worthy.png")
+team.getAddPlayerToPosition("centers", "Kevin Durant",92,"../players/kevin-durant.png")
+team.getAddPlayerToPosition("centers", "Kyrie Irving",94,"../players/kyrie-irving.png")
 
 /// Forwards
-team.getAddPlayerToPosition("forwards", "Kobe", 35.5)
-team.getAddPlayerToPosition("forwards", "Gordon", 29)
-team.getAddPlayerToPosition("forwards", "Harris", 37.5)
-team.getAddPlayerToPosition("forwards", "Jackson", 22.5)
-team.getAddPlayerToPosition("forwards", "Lamb", 35)
+team.getAddPlayerToPosition("forwards", "Mike Conley", 91,"../players/mike-conley.png")
+team.getAddPlayerToPosition("forwards", "Richard Hamilton", 94,"../players/richard-hamilton.png")
+team.getAddPlayerToPosition("forwards", "Sleepy Floyd", 95,"../players/sleepy-floyd.png")
+team.getAddPlayerToPosition("forwards", "Stephen Curry", 98, "../players/stephen-curry.png")
+team.getAddPlayerToPosition("forwards", "Zydrunas Ilgauskas", 86, "../players/zydrunas-ilgauskas.png")
 
 let selectedTeam = team.generateRandomTeam();
 

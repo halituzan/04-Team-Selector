@@ -4,13 +4,17 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+img {
+  width: 85px;
+  filter: drop-shadow(0px 0px 5px white);
+  z-index: -999;
+}
 
 body {
   min-height: 100vh;
   margin: 0;
-  background-image: url(./basketbol-sahasi.jpg);
+
   background-repeat: no-repeat;
-  background-position: top center;
   overflow: hidden;
   background-color: #d8a56e;
   text-align: center;
@@ -23,7 +27,8 @@ body {
   text-align: center;
   height: 900px;
   background: #ff000024;
-  margin: auto;
+  float: left;
+  background-image: url(./basketbol-sahasi.jpg);
 }
 
 .position {
@@ -44,18 +49,20 @@ body {
 .flex-direction-column {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.flex span {
+.info span {
   font-size: 16px;
   background: #d8a56e;
   padding: 3px 5px;
   border-radius: 20px 0 0px 20px;
+  box-shadow: 0px 0px 4px 1px snow;
 }
 
-.flex i {
+/* .flex i, .yedekpozisyon i {
   height: 50px;
-}
+} */
 
 .point {
   background: green !important;
@@ -69,4 +76,62 @@ body {
 .info {
   display: flex;
   align-items: baseline;
+  z-index: 9999;
+}
+
+.yedek-klubesi {
+  float: left;
+  height: 900px;
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.563);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.yedek-klubesi img {
+  width: 60px;
+  margin-bottom: -15px;
+}
+.yedek-klubesi .info span {
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  align-self: center;
+  background-color: darkred;
+}
+.yedek-klubesi .info .point {
+  padding: 14px 5px!important;
+}
+
+.yedekpozisyon {
+  width: 100%;
+  color: white;
+}
+.yedekpozisyon .info {
+width: 75%;
+margin: auto;
+}
+.flex-column-around {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.align-center {
+  align-items: center;
+}
+.container .position i {
+  margin-bottom: -20px;
+}
+
+.refresh {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
 }
